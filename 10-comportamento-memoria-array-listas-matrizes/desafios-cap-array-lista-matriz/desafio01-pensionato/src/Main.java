@@ -17,6 +17,7 @@ public class Main {
 		
 		
 		for (int i=0;i<n;i++) {
+			System.out.println();
 			System.out.println("Rent #"+(i+1)+":");
 			System.out.print("Name: ");
 			teclado.nextLine();
