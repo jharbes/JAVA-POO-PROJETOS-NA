@@ -13,7 +13,6 @@ public class Main {
 		
 		for (int i=0;i<n;i++) {
 			for (int j=0;j<n;j++) {
-				System.out.print("Digite o elemento ["+i+","+j+"]: ");
 				matriz[i][j]=teclado.nextInt();
 				if (matriz[i][j]<0)
 					somaNegativos++;
