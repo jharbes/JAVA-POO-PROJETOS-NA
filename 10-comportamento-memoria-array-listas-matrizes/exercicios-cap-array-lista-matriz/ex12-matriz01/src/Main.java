@@ -11,8 +11,8 @@ public class Main {
 		int matriz[][]=new int[n][n];
 		int somaNegativos=0;
 		
-		for (int i=0;i<n;i++) {
-			for (int j=0;j<n;j++) {
+		for (int i=0;i<matriz.length;i++) {
+			for (int j=0;j<matriz[i].length;j++) {
 				matriz[i][j]=teclado.nextInt();
 				if (matriz[i][j]<0)
 					somaNegativos++;
@@ -21,8 +21,8 @@ public class Main {
 		
 		System.out.println();
 		System.out.println("Main diagonal:");
-		for (int i=0;i<n;i++) {
-			for (int j=0;j<n;j++) {
+		for (int i=0;i<matriz.length;i++) {
+			for (int j=0;j<matriz[i].length;j++) {
 				if (i==j)
 					System.out.print(matriz[i][j]+" ");
 			}
