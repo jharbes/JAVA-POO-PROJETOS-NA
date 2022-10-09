@@ -1,5 +1,5 @@
-<img src="logo-spring.png" align="right" width="100">
-<img src="logo-java.png" align="right" width="100">
+<img src="logo-spring.png" align="right" width="120">
+<img src="logo-java.png" align="right" width="120">
 
 # JAVA-POO-PROJETOS-NA
 
