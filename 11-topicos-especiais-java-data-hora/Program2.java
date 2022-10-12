@@ -22,8 +22,9 @@ public class Program2 {
 		
 		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault()); // para customizar data e hora no caso de horas com padrão GMT devemos usar o método adicional withZone (no caso desse exemplo usamos o ZoneID.systemDefault, ele utilizará o fuso horário padrão do sistema no qual está sendo chamado o método.
 		
-		DateTimeFormatter fmt4 = DateTimeFormatter.ISO_DATE_TIME;
-		DateTimeFormatter fmt5 = DateTimeFormatter.ISO_INSTANT;
+		DateTimeFormatter fmt4 = DateTimeFormatter.ISO_DATE_TIME; // formato pré definido conforme documentacao da oracle no link informado neste documento (já possui diversas formatações pré estabelecidas) , não pode formatar o Instant pois ele obriga que haja informações do fuso horário na formatação de saída.
+		
+		DateTimeFormatter fmt5 = DateTimeFormatter.ISO_INSTANT; // formato pré definido, no entanto possui informação de fuso horário, podendo servir de formatação para Instant (que possuem fuso horário na formatação)
 		
 		System.out.println("d04 = " + d04.format(fmt1)); // imprime a data d04 no formato criado acima fmt1, ficando no formato dd/MM/yyyy OBS1 *** CONVERSÃO PARA IMPRESSÃO DE UM OBJETO DATA -HORA PARA OUTRO PADRÃO DE IMPRESSAO ESCOLHIDO)
 		
@@ -39,7 +40,8 @@ public class Program2 {
 
 		System.out.println("d06 = " + fmt3.format(d06)); // temos que a classe instant na qual o objeto d06 foi instanciado não permite a utilização do método format, por isso chamaremos o mesmo método pelo objeto de formatação fmt3 com o argumento de d06. IMPORTANTE*** Importante perceber que a data impressa será no horário local, ou seja, haverá conversão em relação a data inicialmente instanciada.
 		
-		System.out.println("d06 = " + fmt5.format(d06));
-		System.out.println("d06 = " + d06.toString());
+		System.out.println("d06 = " + fmt5.format(d06)); // agora irá imprimir o objeto de data e hora com fuso horário no formato pré estabelecido fmt5 , no qual existe informação de fuso horário.
+		
+		System.out.println("d06 = " + d06.toString()); // imprime no formato ISO, d06 por si só já chama o método to.String(), então nesse caso ele é opcional.
 	}
 }
