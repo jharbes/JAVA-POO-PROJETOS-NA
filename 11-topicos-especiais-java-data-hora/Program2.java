@@ -15,15 +15,19 @@ public class Program2 {
 		Instant d06 = Instant.parse("2022-07-20T01:30:26Z");
 		
 		// https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/format/DateTimeFormatter.html
-		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // cria o formato fmt1 no qual a data ficará no formato dd/MM/yyyy OBS1
+		
 		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
 		DateTimeFormatter fmt4 = DateTimeFormatter.ISO_DATE_TIME;
 		DateTimeFormatter fmt5 = DateTimeFormatter.ISO_INSTANT;
 		
-		System.out.println("d04 = " + d04.format(fmt1));
-		System.out.println("d04 = " + fmt1.format(d04));
-		System.out.println("d04 = " + d04.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+		System.out.println("d04 = " + d04.format(fmt1)); // imprime a data d04 no formato criado acima fmt1, ficando no formato dd/MM/yyyy OBS1
+		
+		System.out.println("d04 = " + fmt1.format(d04)); // mesmo resultado do item anterior, porém a chamada é pelo método do objeto fmt1. OBS1
+		
+		System.out.println("d04 = " + d04.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))); // idem aos dois acima, mas nesse caso fazemos a transformação dentro da própria chamada do método, desfazendo a necessidade de instanciar o formato antecipadamente.
 		
 		System.out.println("d05 = " + d05.format(fmt1));
 		System.out.println("d05 = " + d05.format(fmt2));
