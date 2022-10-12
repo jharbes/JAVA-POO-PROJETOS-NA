@@ -20,7 +20,8 @@ public class Program2 {
 		
 		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"); // criando o objeto fmt2 no qual a data e hora ficará com o formato dd/MM/yyyy HH:mm
 		
-		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
+		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault()); // para customizar data e hora no caso de horas com padrão GMT devemos usar o método adicional withZone (no caso desse exemplo usamos o ZoneID.systemDefault, ele utilizará o fuso horário padrão do sistema no qual está sendo chamado o método.
+		
 		DateTimeFormatter fmt4 = DateTimeFormatter.ISO_DATE_TIME;
 		DateTimeFormatter fmt5 = DateTimeFormatter.ISO_INSTANT;
 		
@@ -30,11 +31,14 @@ public class Program2 {
 		
 		System.out.println("d04 = " + d04.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))); // idem aos dois acima, mas nesse caso fazemos a transformação dentro da própria chamada do método, desfazendo a necessidade de instanciar o formato antecipadamente.
 		
-		System.out.println("d05 = " + d05.format(fmt1));
-		System.out.println("d05 = " + d05.format(fmt2));
+		System.out.println("d05 = " + d05.format(fmt1)); // primeiro imprimimos o objeto d05 que possui atributos de tempo em formato que possui apenas dia e mês e não haverá problema.
+		
+		System.out.println("d05 = " + d05.format(fmt2)); // aqui imprimimos o objeto d05 que possui data e hora em novo formato designado conforme instanciação do formato fmt2 acima no documento.
+		
 		System.out.println("d05 = " + d05.format(fmt4));
 
-		System.out.println("d06 = " + fmt3.format(d06));
+		System.out.println("d06 = " + fmt3.format(d06)); // temos que a classe instant na qual o objeto d06 foi instanciado não permite a utilização do método format, por isso chamaremos o mesmo método pelo objeto de formatação fmt3 com o argumento de d06. IMPORTANTE*** Importante perceber que a data impressa será no horário local, ou seja, haverá conversão em relação a data inicialmente instanciada.
+		
 		System.out.println("d06 = " + fmt5.format(d06));
 		System.out.println("d06 = " + d06.toString());
 	}
