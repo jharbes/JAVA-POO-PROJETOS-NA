@@ -8,6 +8,9 @@ import java.time.ZoneId;
 public class Program3 {
 
 	public static void main(String[] args) {
+		
+		// IMPORTANTE ***
+		// o código abaixo forEach imprime todas as zonas existentes de horários com referencias globais para serem utilizadas conforme necessário
 
 		// for (String s : ZoneId.getAvailableZoneIds())
 		// System.out.println(s);
@@ -16,7 +19,8 @@ public class Program3 {
 		LocalDateTime d05 = LocalDateTime.parse("2022-07-20T01:30:26");
 		Instant d06 = Instant.parse("2022-07-20T01:30:26Z");
 
-		LocalDate r1 = LocalDate.ofInstant(d06, ZoneId.systemDefault());
+		LocalDate r1 = LocalDate.ofInstant(d06, ZoneId.systemDefault()); // converte uma hora no fuso horario global GMT(Instant) para uma data (apenas data) no fuso horário do pc onde está sendo feito(Sistema local)
+		
 		LocalDate r2 = LocalDate.ofInstant(d06, ZoneId.of("Portugal"));
 		LocalDateTime r3 = LocalDateTime.ofInstant(d06, ZoneId.systemDefault());
 		LocalDateTime r4 = LocalDateTime.ofInstant(d06, ZoneId.of("Portugal"));
