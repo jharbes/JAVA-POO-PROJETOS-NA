@@ -23,17 +23,20 @@ public class Program3 {
 		
 		LocalDate r2 = LocalDate.ofInstant(d06, ZoneId.of("Portugal")); // agora converteremos o mesmo "instant" para o horário de portugal(que está presente na tabela de fuso horário getAvailableZoneIds.
 		
-		LocalDateTime r3 = LocalDateTime.ofInstant(d06, ZoneId.systemDefault());
-		LocalDateTime r4 = LocalDateTime.ofInstant(d06, ZoneId.of("Portugal"));
+		LocalDateTime r3 = LocalDateTime.ofInstant(d06, ZoneId.systemDefault()); // idem ao anterior de cima, só que agora com o DateTime também serão incluidas as horas minutos e segundos.
+		
+		LocalDateTime r4 = LocalDateTime.ofInstant(d06, ZoneId.of("Portugal")); // idem ao anterior, só que agora a data em conjunto com as horas minutos e segundos será convertido para o horário de portugal
 
 		System.out.println("r1 = " + r1);
 		System.out.println("r2 = " + r2);
 		System.out.println("r3 = " + r3);
 		System.out.println("r4 = " + r4);
 
-		System.out.println("d04 dia = " + d04.getDayOfMonth());
-		System.out.println("d04 mês = " + d04.getMonthValue());
-		System.out.println("d04 ano = " + d04.getYear());
+		System.out.println("d04 dia = " + d04.getDayOfMonth()); // utilizando o método getDayOfMonth para pegar apenas o dia referente a data instaciada de d04
+		
+		System.out.println("d04 mês = " + d04.getMonthValue()); // utilizando o método getMonthValue para pegar apenas o número do mês referente a data instanciada d04
+		
+		System.out.println("d04 ano = " + d04.getYear()); // idem aos anteriores, porém o valor do ano
 
 		System.out.println("d05 hora = " + d05.getHour());
 		System.out.println("d05 minutos = " + d05.getMinute());
