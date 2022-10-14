@@ -38,8 +38,9 @@ public class Program3 {
 		
 		System.out.println("d04 ano = " + d04.getYear()); // idem aos anteriores, porém o valor do ano
 
-		System.out.println("d05 hora = " + d05.getHour());
-		System.out.println("d05 minutos = " + d05.getMinute());
+		System.out.println("d05 hora = " + d05.getHour()); // utilizando o método getHour para pegar a hora referente a data em questão, importante salientar que funcionará apenas para objetos LocalDateTime
+		
+		System.out.println("d05 minutos = " + d05.getMinute()); // idem ao anterior, porém para conseguir os minutos
 
 	}
 }
