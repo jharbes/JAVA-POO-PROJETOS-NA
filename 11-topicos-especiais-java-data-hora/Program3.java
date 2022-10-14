@@ -21,7 +21,8 @@ public class Program3 {
 
 		LocalDate r1 = LocalDate.ofInstant(d06, ZoneId.systemDefault()); // converte uma hora no fuso horario global GMT(Instant) para uma data (apenas data) no fuso horário do pc onde está sendo feito(Sistema local)
 		
-		LocalDate r2 = LocalDate.ofInstant(d06, ZoneId.of("Portugal"));
+		LocalDate r2 = LocalDate.ofInstant(d06, ZoneId.of("Portugal")); // agora converteremos o mesmo "instant" para o horário de portugal(que está presente na tabela de fuso horário getAvailableZoneIds.
+		
 		LocalDateTime r3 = LocalDateTime.ofInstant(d06, ZoneId.systemDefault());
 		LocalDateTime r4 = LocalDateTime.ofInstant(d06, ZoneId.of("Portugal"));
 
