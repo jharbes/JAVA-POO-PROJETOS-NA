@@ -25,11 +25,13 @@ public class Program4 {
 		
 		LocalDate nextWeekDate = d04.plusDays(7); // idem ao anterior, porém serão 7 dias pra FRENTE (uma semana na frente), o valor dos dias pode ser qualquer valor desejado em ambos os métodos, o mesmo método existe para meses a anos igualmente.
 		
-		LocalDateTime pastWeekLocalDate = d05.minusDays(7);
-		LocalDateTime nextWeekLocalDate = d05.plusDays(7);
+		LocalDateTime pastWeekLocalDate = d05.minusDays(7); // exemplo idem aos anteriores, porém nesse caso o objeto também possui hora, no entanto estamos apenas manipulando os dias nesse caso.
 		
-		Instant pastWeekInstant = d06.minus(7, ChronoUnit.DAYS);
-		Instant nextWeekInstant = d06.plus(7, ChronoUnit.DAYS);
+		LocalDateTime nextWeekLocalDate = d05.plusDays(7); // idem ao anterior, porém para mais sete dias em vez de menos sete dias. no caso de LocalDateTime temos métodos equivalentes para horas, minutos, segundos, nanosegundos, etc.
+		
+		Instant pastWeekInstant = d06.minus(7, ChronoUnit.DAYS); // No caso do instant não temos o método minusDays ou plusDays, portanto devemos utilizar o método minus, seguido do número desejado para redução e a unidade que queremos reduzir, nesse caso utilizaremos o objeto ChronoUnit.DAYS que corresponde a dias, mas temos o mesmo objeto para outras unidades de tempo.
+		
+		Instant nextWeekInstant = d06.plus(7, ChronoUnit.DAYS); // idem ao anterior, só que nesse caso será para incremento (Plus)
 		
 		System.out.println("pastWeekDate = " + pastWeekDate);
 		System.out.println("nextWeekDate = " + nextWeekDate);
@@ -40,12 +42,15 @@ public class Program4 {
 		System.out.println("pastWeekInstant = " + pastWeekInstant);
 		System.out.println("nextWeekInstant = " + nextWeekInstant);
 		
-		Duration t1 = Duration.between(pastWeekDate.atStartOfDay(), d04.atStartOfDay());
-		Duration t2 = Duration.between(pastWeekLocalDate, d05);
+		
+		Duration t1 = Duration.between(pastWeekDate.atStartOfDay(), d04.atStartOfDay()); // aqui calcularemos o espaço de tempo entre duas datas instanciadas, observar que também utilizamos o método atStartOfDay para utilizar a hora zero do dia. Precisamos utilizar esse método pois ele não é capaz de efetuar o calculo sem a consideração do tempo, utilizando dessa maneira o tempo fica setado. (funciona como uma conversão para LocalDateTime
+		
+		Duration t2 = Duration.between(pastWeekLocalDate, d05); 
 		Duration t3 = Duration.between(pastWeekInstant, d06);
 		Duration t4 = Duration.between(d06, pastWeekInstant);
 
-		System.out.println("t1 dias = " + t1.toDays());
+		System.out.println("t1 dias = " + t1.toDays()); // ao imprimir usamos o método toDays para que a unidade de saida seja em dias.
+		
 		System.out.println("t2 dias = " + t2.toDays());
 		System.out.println("t3 dias = " + t3.toDays());
 		System.out.println("t4 dias = " + t4.toDays());
