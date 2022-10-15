@@ -6,6 +6,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
+/* *** IMPORTANTE ***
+
+	Data e hora em Java são objetos imutáveis, ou seja, quando desejar alterar alguma data-hora
+	existente devemos intanciar um novo objeto, nunca tentar alterar o objeto já existente e instanciado.
+
+*/
+
 public class Program4 {
 
 	public static void main(String[] args) {
