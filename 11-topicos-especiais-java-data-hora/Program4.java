@@ -21,8 +21,9 @@ public class Program4 {
 		LocalDateTime d05 = LocalDateTime.parse("2022-07-20T01:30:26");
 		Instant d06 = Instant.parse("2022-07-20T01:30:26Z");
 		
-		LocalDate pastWeekDate = d04.minusDays(7);
-		LocalDate nextWeekDate = d04.plusDays(7);
+		LocalDate pastWeekDate = d04.minusDays(7); // criando um novo objeto (pastWeekDate) de data onde a data solicitada é de 7 dias atrás (1 semana atrás)
+		
+		LocalDate nextWeekDate = d04.plusDays(7); // idem ao anterior, porém serão 7 dias pra FRENTE (uma semana na frente), o valor dos dias pode ser qualquer valor desejado em ambos os métodos, o mesmo método existe para meses a anos igualmente.
 		
 		LocalDateTime pastWeekLocalDate = d05.minusDays(7);
 		LocalDateTime nextWeekLocalDate = d05.plusDays(7);
