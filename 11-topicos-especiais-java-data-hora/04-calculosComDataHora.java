@@ -45,9 +45,11 @@ public class Program4 {
 		
 		Duration t1 = Duration.between(pastWeekDate.atStartOfDay(), d04.atStartOfDay()); // aqui calcularemos o espaço de tempo entre duas datas instanciadas, observar que também utilizamos o método atStartOfDay para utilizar a hora zero do dia. Precisamos utilizar esse método pois ele não é capaz de efetuar o calculo sem a consideração do tempo, utilizando dessa maneira o tempo fica setado. (funciona como uma conversão para LocalDateTime
 		
-		Duration t2 = Duration.between(pastWeekLocalDate, d05); 
-		Duration t3 = Duration.between(pastWeekInstant, d06);
-		Duration t4 = Duration.between(d06, pastWeekInstant);
+		Duration t2 = Duration.between(pastWeekLocalDate, d05); // idem ao anterior efetuando o cálculo entre as datas, porém aqui já temos como LocalDateTime, sendo assim não precisamos converter.
+		
+		Duration t3 = Duration.between(pastWeekInstant, d06); // idem aos anteriores, só que agora para instant (com fuso horario global)
+		
+		Duration t4 = Duration.between(d06, pastWeekInstant); // aqui é como o anterior, porém invertido, logo o resultado será negativo.
 
 		System.out.println("t1 dias = " + t1.toDays()); // ao imprimir usamos o método toDays para que a unidade de saida seja em dias.
 		
