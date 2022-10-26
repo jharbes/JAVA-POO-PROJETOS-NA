@@ -1,5 +1,5 @@
-<img src="logo-spring.png" align="right" width="120">
-<img src="logo-java.png" align="right" width="120">
+<img align="center" alt="Spring" width="120" src="https://github.com/devicons/devicon/blob/master/icons/spring/spring-original.svg">
+<img align="center" alt="Java" width="120" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg">
 
 # JAVA-POO-PROJETOS-NA
 
