@@ -6,8 +6,9 @@ import java.util.Date;
 import java.util.List;
 
 public class Post {
-
-	SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	
+	// Usamos abaixo o private static para que nao seja necessario uma copia do objeto para cada post criado.
+	private static SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
 	private Date moment;
 	private String title;
@@ -74,12 +75,27 @@ public class Post {
 
 	@Override
 	public String toString() {
+		StringBuilder sb=new StringBuilder();
+		sb.append(title+"\n"+likes+" Likes - ");
+		sb.append(sdf2.format(moment)+"\n"+content+"\n"+"Comments:\n");
+		for (Comment c:this.getComments()) {
+			sb.append(c.getText()+"\n");
+		}
+		
+		return sb.toString();
+		
+		/*
+		
+		ABAIXO CODIGO FEITO POR MIM SEM STRING BUILDER:
+		
 		String sumComments = "";
 		for (Comment c : this.getComments()) {
 			sumComments += "\n" + c.getText();
 		}
-		return this.getTitle() + "\n" + this.getLikes() + " - " + sdf2.format(getMoment()) + "\n" + this.getContent()
+		return this.getTitle() + "\n" + this.getLikes() + " Likes - " + sdf2.format(getMoment()) + "\n" + this.getContent()
 				+ "\n" + "Comments:" + sumComments + "\n";
+				
+		*/
 	}
 
 }
