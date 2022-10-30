@@ -1,5 +1,6 @@
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.List;
 import entities.enums.OrderStatus;
 
 public class Order {
+	
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
 	private Date moment;
 	private OrderStatus status;
@@ -61,6 +64,9 @@ public class Order {
 
 	@Override
 	public String toString() {
+		StringBuilder sb=new StringBuilder();
+		sb.append("ORDER SUMMARY:\nOrder moment: "+sdf.format(this.getMoment()));
+		
 		return "Order [moment=" + moment + ", status=" + status + ", items=" + items + "]";
 	}
 	

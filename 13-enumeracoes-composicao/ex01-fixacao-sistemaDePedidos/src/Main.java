@@ -27,7 +27,6 @@ public class Main {
 		String date=teclado.next();
 		
 		Client c1=new Client(name, email, sdf.parse(date));
-		System.out.println(c1);
 		
 		Order o1=new Order(new Date(),OrderStatus.PROCESSING);
 		
@@ -35,14 +34,16 @@ public class Main {
 		Integer numItems=teclado.nextInt();
 		
 		for (int i=1;i<=numItems;i++) {
-			System.out.println("Enter #"+i+"item data:");
+			System.out.println("Enter #"+i+" item data:");
 			System.out.print("Product name: ");
+			teclado.next();
 			String productName=teclado.nextLine();
 			System.out.print("Product price: ");
 			Double productPrice=teclado.nextDouble();
 			
 			Product p1=new Product(productName, productPrice);
 			
+			System.out.print("Quantity: ");
 			Integer productQuantity=teclado.nextInt();
 			o1.addItem(new OrderItem(productQuantity, productPrice, p1));
 		}
