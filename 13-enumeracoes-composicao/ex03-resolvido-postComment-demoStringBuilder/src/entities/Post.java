@@ -5,21 +5,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
-
 public class Post {
-	
+
 	SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-	
+
 	private Date moment;
 	private String title;
 	private String content;
 	private Integer likes;
-	
-	private List<Comment> comments=new ArrayList<>();
-	
+
+	private List<Comment> comments = new ArrayList<>();
+
 	public Post() {
-		
+
 	}
 
 	public Post(Date moment, String title, String content, Integer likes) {
@@ -29,11 +27,11 @@ public class Post {
 		this.content = content;
 		this.likes = likes;
 	}
-	
+
 	public void addComment(Comment comment) {
 		this.comments.add(comment);
 	}
-	
+
 	public void removeComment(Comment comment) {
 		this.comments.remove(comment);
 	}
@@ -76,7 +74,12 @@ public class Post {
 
 	@Override
 	public String toString() {
-		return this.getTitle()+"\njuru";
+		String sumComments ="";
+		for (Comment c: this.getComments()) {
+			sumComments+="\n"+c.getText();
+		}
+		return this.getTitle() + "\n" + this.getLikes() + " - " + sdf2.format(getMoment()) + "\n" + this.getContent()
+				+ "\n" + "Comments:" + sumComments+"\n";
 	}
-	
+
 }
