@@ -74,12 +74,12 @@ public class Post {
 
 	@Override
 	public String toString() {
-		String sumComments ="";
-		for (Comment c: this.getComments()) {
-			sumComments+="\n"+c.getText();
+		String sumComments = "";
+		for (Comment c : this.getComments()) {
+			sumComments += "\n" + c.getText();
 		}
 		return this.getTitle() + "\n" + this.getLikes() + " - " + sdf2.format(getMoment()) + "\n" + this.getContent()
-				+ "\n" + "Comments:" + sumComments+"\n";
+				+ "\n" + "Comments:" + sumComments + "\n";
 	}
 
 }

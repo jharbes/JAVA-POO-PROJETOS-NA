@@ -1,11 +1,11 @@
 package entities;
 
 public class Comment {
-	
+
 	private String text;
-	
-	public Comment () {
-		
+
+	public Comment() {
+
 	}
 
 	public Comment(String text) {
@@ -23,7 +23,7 @@ public class Comment {
 
 	@Override
 	public String toString() {
-		return this.getText()+"\n";
+		return this.getText() + "\n";
 	}
-	
+
 }
