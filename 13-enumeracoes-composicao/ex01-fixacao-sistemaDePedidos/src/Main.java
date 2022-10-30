@@ -28,7 +28,7 @@ public class Main {
 		
 		Client c1=new Client(name, email, sdf.parse(date));
 		
-		Order o1=new Order(new Date(),OrderStatus.PROCESSING);
+		Order o1=new Order(new Date(),OrderStatus.PROCESSING,c1);
 		
 		System.out.print("How many items to this order? ");
 		Integer numItems=teclado.nextInt();
@@ -36,7 +36,7 @@ public class Main {
 		for (int i=1;i<=numItems;i++) {
 			System.out.println("Enter #"+i+" item data:");
 			System.out.print("Product name: ");
-			teclado.next();
+			teclado.nextLine();
 			String productName=teclado.nextLine();
 			System.out.print("Product price: ");
 			Double productPrice=teclado.nextDouble();
