@@ -15,8 +15,9 @@ public class BusinessAccount extends Account {
 
 	public void loan(Double amount) {
 		if (amount<=this.getLoanLimit()) {
-			this.deposit(amount);
+			this.balance=amount-10.0;
 			System.out.println("DEPOSITO DE EMPRÉSTIMO EFETUADO NO VALOR DE +$"+String.format("%.2f",amount));
+			System.out.println("DESCONTO DE TAXA NO VALOR DE -$10,00");
 		} else
 			System.out.println("VALOR DE EMPRÉSTIMO NÃO DISPONÍVEL.");
 	}
