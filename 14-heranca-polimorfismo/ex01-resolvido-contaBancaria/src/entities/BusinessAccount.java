@@ -32,7 +32,7 @@ public class BusinessAccount extends Account {
 
 	@Override
 	public String toString() {
-		return "BusinessAccount [loanLimit=" + loanLimit + "]";
+		return "BusinessAccount [loanLimit=" + loanLimit + ", balance=" + balance + "]";
 	}
 	
 }

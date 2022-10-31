@@ -12,6 +12,11 @@ public class SavingsAccount extends Account {
 		super(number, holder, balance);
 		this.interestRate = interestRate;
 	}
+	
+	public void updateBalance() {
+		System.out.println("SALDO ATUALIZADO EM +$"+String.format("%.2f",this.balance*this.getInterestRate()));
+		this.balance+=this.balance*this.getInterestRate();
+	}
 
 	public Double getInterestRate() {
 		return interestRate;
