@@ -21,7 +21,7 @@ public class Account {
 		this.balance=this.getBalance()-amount-5.0;
 		System.out.println("WITHDRAW VALUE: -$"+String.format("%.2f",amount));
 		System.out.println("$5,00 TAX CHARGED FOR WITHDRAW");
-		System.out.println("NEW BALANCE = $"+String.format("%.2f",this.getBalance())+"\n");
+		System.out.println("NEW BALANCE = $" + String.format("%.2f", this.getBalance()) + "\n");
 	}
 	
 	public void deposit(Double amount) {
