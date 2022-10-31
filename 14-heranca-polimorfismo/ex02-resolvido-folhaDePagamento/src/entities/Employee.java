@@ -17,7 +17,7 @@ public class Employee {
 	}
 	
 	public Double payment() {
-		return this.getValuePerHour()*this.getHours();
+		return this.getValuePerHour() * this.getHours();
 	}
 
 	public String getName() {
