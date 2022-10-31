@@ -26,12 +26,14 @@ public class Program {
 			char outsourced=(char)System.in.read();
 			
 			System.out.print("Name: ");
+			teclado.nextLine();
+			teclado.nextLine();
 			String name=teclado.nextLine();
 			
 			System.out.print("Hours: ");
 			Integer hours=teclado.nextInt();
 			
-			System.out.println("Value per hour: ");
+			System.out.print("Value per hour: ");
 			Double valuePerHour=teclado.nextDouble();
 			
 			if (outsourced=='Y' || outsourced=='y') {
@@ -43,7 +45,7 @@ public class Program {
 				list1.add(new Employee(name, hours, valuePerHour));
 		}
 		
-		System.out.println("PAYMENTS:");
+		System.out.println("\nPAYMENTS:");
 		for (Employee e: list1) {
 			System.out.println(e.getName()+" -  $ "+String.format("%.2f",e.payment()));
 		}
