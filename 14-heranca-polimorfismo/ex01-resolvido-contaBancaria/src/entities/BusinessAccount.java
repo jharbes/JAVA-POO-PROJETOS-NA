@@ -40,7 +40,7 @@ public final class BusinessAccount extends Account {
 
 	@Override
 	public String toString() {
-		return "BusinessAccount [loanLimit=" + loanLimit + ", balance=" + balance + "]";
+		return super.toString()+"BusinessAccount [loanLimit=" + loanLimit + ", balance=" + balance + "]";
 	}
 
 }

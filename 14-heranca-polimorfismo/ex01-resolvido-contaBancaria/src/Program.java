@@ -1,6 +1,7 @@
 import entities.Account;
 import entities.BusinessAccount;
 import entities.SavingsAccount;
+import entities.SavingsAccountPlus;
 
 public class Program {
 
@@ -52,6 +53,14 @@ public class Program {
 
 		c3.deposit(500.0);
 		c3.withdraw(100.00);
+		
+		Account x = new Account(1020, "Alex", 1000.0);
+		Account y = new SavingsAccount(1023, "Maria", 1000.0, 0.01);
+		x.withdraw(50.0);
+		y.withdraw(50.0);
+		
+		SavingsAccountPlus w=new SavingsAccountPlus(1005, "Jorge Harbes", 450000.0, 0.05, 0.06);
+		System.out.println(w.toString());
 	}
 
 }
