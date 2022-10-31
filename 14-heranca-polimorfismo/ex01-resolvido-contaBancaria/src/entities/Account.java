@@ -20,6 +20,13 @@ public class Account {
 	public void withdraw(Double amount) {
 		this.balance=this.getBalance()-amount;
 		System.out.println("WITHDRAW VALUE: -$"+String.format("%.2f",amount));
+		System.out.println("NEW BALANCE = $"+String.format("%.2f",this.getBalance()));
+	}
+	
+	public void deposit(Double amount) {
+		this.balance=this.getBalance()+amount;
+		System.out.println("DEPOSIT VALUE: +$"+String.format("%.2f",amount));
+		System.out.println("NEW BALANCE = $"+String.format("%.2f",this.getBalance()));
 	}
 
 	public Integer getNumber() {
