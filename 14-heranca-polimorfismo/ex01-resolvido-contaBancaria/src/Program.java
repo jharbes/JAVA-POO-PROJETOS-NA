@@ -50,7 +50,9 @@ public class Program {
 		
 		c4.deposit(5000.0);
 		c4.withdraw(500.0);
-		System.out.println(c4.toString());
+		
+		c3.deposit(500.0);
+		c3.withdraw(100.00);
 	}
 
 }
