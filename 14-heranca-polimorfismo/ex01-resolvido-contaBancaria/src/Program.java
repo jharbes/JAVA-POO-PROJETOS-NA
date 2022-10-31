@@ -36,6 +36,14 @@ public class Program {
 		// Precisamos primeiramente testar se o objeto faz parte da classe
 		// BusinessAccount, para isso utilizaremos o instanceof conforme segue abaixo:
 		
+		if (c4 instanceof BusinessAccount) {
+			BusinessAccount c6=(BusinessAccount)c4;
+			c6.loan(200.0);
+		} 
+		else if (c4 instanceof SavingsAccount) {
+			SavingsAccount c6=(SavingsAccount)c4;
+			c6.updateBalance();
+		}
 		
 	}
 

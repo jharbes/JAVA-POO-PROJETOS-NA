@@ -14,7 +14,7 @@ public class SavingsAccount extends Account {
 	}
 	
 	public void updateBalance() {
-		System.out.println("SALDO ATUALIZADO EM +$"+String.format("%.2f",this.balance*this.getInterestRate()));
+		System.out.println("SALDO ATUALIZADO DE JUROS EM +$"+String.format("%.2f",this.balance*this.getInterestRate())+"\n");
 		this.balance+=this.balance*this.getInterestRate();
 	}
 
