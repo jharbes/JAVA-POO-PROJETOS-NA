@@ -20,7 +20,7 @@ public class SavingsAccount extends Account {
 	}
 
 	@Override
-	public void withdraw(Double amount) {
+	public final void withdraw(Double amount) {
 		this.balance = this.getBalance() - amount;
 		System.out.println("WITHDRAW VALUE: -$" + String.format("%.2f", amount));
 		System.out.println("NO TAXES CHARGED FOR WITHDRAW");
