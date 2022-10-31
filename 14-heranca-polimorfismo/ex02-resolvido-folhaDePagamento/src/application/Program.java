@@ -43,6 +43,11 @@ public class Program {
 				list1.add(new Employee(name, hours, valuePerHour));
 		}
 		
+		System.out.println("PAYMENTS:");
+		for (Employee e: list1) {
+			System.out.println(e.getName()+" -  $ "+String.format("%.2f",e.payment()));
+		}
+		
 		teclado.close();
 	}
 
