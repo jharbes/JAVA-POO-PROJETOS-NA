@@ -45,6 +45,12 @@ public class Program {
 			c6.updateBalance();
 		}
 		
+		c1.deposit(1000.00);
+		c1.withdraw(500.0);
+		
+		c4.deposit(5000.0);
+		c4.withdraw(500.0);
+		System.out.println(c4.toString());
 	}
 
 }
