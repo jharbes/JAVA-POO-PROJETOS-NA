@@ -16,8 +16,11 @@ public class PessoaFisica extends Pessoa {
 	@Override
 	public Double valorImposto() {
 		// TODO Auto-generated method stub
-		return this.getRendaAnual() < 20000.0 ? this.getRendaAnual() * 0.15 - this.getGastosComSaude() * 0.5
-				: this.getRendaAnual() * 0.25 - this.getGastosComSaude() * 0.5;
+		return (this.getRendaAnual() < 20000.0 ? this.getRendaAnual() * 0.15 - this.getGastosComSaude() * 0.5
+				: this.getRendaAnual() * 0.25 - this.getGastosComSaude() * 0.5) > 0
+						? (this.getRendaAnual() < 20000.0 ? this.getRendaAnual() * 0.15 - this.getGastosComSaude() * 0.5
+								: this.getRendaAnual() * 0.25 - this.getGastosComSaude() * 0.5)
+						: 0.0;
 	}
 
 	public Double getGastosComSaude() {
