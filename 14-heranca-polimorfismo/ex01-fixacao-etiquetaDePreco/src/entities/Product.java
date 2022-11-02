@@ -13,6 +13,10 @@ public class Product {
 		this.name = name;
 		this.price = price;
 	}
+	
+	public String priceTag() {
+		return this.getName()+" $ "+String.format("%.2f",this.getPrice());
+	}
 
 	public String getName() {
 		return name;
@@ -32,7 +36,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", price=" + price + "]";
+		return "Product [name=" + name + ", price=" + String.format("%.2f",price) + "]";
 	}
 	
 }

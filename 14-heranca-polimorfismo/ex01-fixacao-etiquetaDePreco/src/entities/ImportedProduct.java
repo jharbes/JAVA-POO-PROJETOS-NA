@@ -12,6 +12,15 @@ public class ImportedProduct extends Product {
 		super(name, price);
 		this.customsFee = customsFee;
 	}
+	
+	public Double totalPrice() {
+		return this.getPrice()+this.getCustomsFee();
+	}
+	
+	@Override
+	public String priceTag() {
+		return this.getName()+" $ "+String.format("%.2f",this.totalPrice())+" (Customs fee: $ "+this.getCustomsFee()+")";
+	}
 
 	public Double getCustomsFee() {
 		return customsFee;
@@ -23,7 +32,7 @@ public class ImportedProduct extends Product {
 
 	@Override
 	public String toString() {
-		return super.toString()+"ImportedProduct [customsFee=" + customsFee + "]";
+		return super.toString()+"ImportedProduct [customsFee=" + String.format("%.2f",customsFee) + "]";
 	}
 	
 }
