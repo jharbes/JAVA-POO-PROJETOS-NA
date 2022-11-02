@@ -1,21 +1,21 @@
 package entities;
 
 public class Product {
-	
+
 	private String name;
 	private Double price;
-	
+
 	public Product() {
-		
+
 	}
 
 	public Product(String name, Double price) {
 		this.name = name;
 		this.price = price;
 	}
-	
+
 	public String priceTag() {
-		return this.getName()+" $ "+String.format("%.2f",this.getPrice());
+		return this.getName() + " $ " + String.format("%.2f", this.getPrice());
 	}
 
 	public String getName() {
@@ -36,7 +36,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", price=" + String.format("%.2f",price) + "]";
+		return "Product [name=" + name + ", price=" + String.format("%.2f", price) + "]";
 	}
-	
+
 }

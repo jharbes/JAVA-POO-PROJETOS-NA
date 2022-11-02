@@ -4,11 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UsedProduct extends Product {
-	
-	SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
-	
+
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
 	private Date manufactureDate;
-	
+
 	public UsedProduct() {
 		super();
 	}
@@ -17,9 +17,10 @@ public class UsedProduct extends Product {
 		super(name, price);
 		this.manufactureDate = manufactureDate;
 	}
-	
+
 	public String priceTag() {
-		return this.getName()+" (used) $ "+this.getPrice()+" (Manufacture date: "+sdf.format(getManufactureDate())+")";
+		return this.getName() + " (used) $ " + String.format("%.2f", this.getPrice()) + " (Manufacture date: "
+				+ sdf.format(getManufactureDate()) + ")";
 	}
 
 	public Date getManufactureDate() {
@@ -32,7 +33,7 @@ public class UsedProduct extends Product {
 
 	@Override
 	public String toString() {
-		return super.toString()+"UsedProduct [manufactureDate=" + manufactureDate + "]";
+		return super.toString() + "UsedProduct [manufactureDate=" + manufactureDate + "]";
 	}
-	
+
 }
