@@ -61,6 +61,9 @@ public class Main {
 		System.out.println(sdf3.format(x1));
 		System.out.println(sdf3.format(x2));
 		System.out.println(sdf3.format(x3));
+		
+		if (checkout.after(checkin) || checkout.before(checkin){ // o método after ou before da classe date testa se uma data é posterior a outra. Nesse caso testa se a data checkout é depois de checkin retornando true se for.
+		}
 	}
 
 }
