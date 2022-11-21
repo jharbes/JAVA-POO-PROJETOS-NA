@@ -40,3 +40,17 @@ List<Integer> result = list.stream().filter(x -> x > 4).collect(Collectors.toLis
 Integer result = list.stream().filter(x -> x > 4).findFirst().orElse(null);
 
 ----------------------------------------------------------------
+
+
+
+----------------------------------------------------------------
+
+MVC - Model View Controller
+
+
+MODEL
+	-ENTITIES
+	-ENUMS
+	-EXCEPTION
+	-SERVICES
+
