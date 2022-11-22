@@ -32,20 +32,19 @@ public class Reservation {
 		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 	}
 
-	public String updateDates(Date checkin, Date checkout) throws ParseException {
+	public void updateDates(Date checkin, Date checkout) throws ParseException {
 
 		Date now = sdf.parse("06/06/2018"); // Utilizamos a data atual como se fosse a data de quando foi gravado o
 		// video, pois se assim nao fizermos os exemplos nao funcionarao no
 		// exercicio
 
 		if (checkin.before(now) || checkout.before(now))
-			return "Reservation dates for update must be future dates";
+			throw new IllegalArgumentException("Reservation dates for update must be future dates");
 		if (!checkout.after(checkin))
-			return "Check-out date must be after check-in date";
+			throw new IllegalArgumentException("Check-out date must be after check-in date");
 
 		this.checkin = checkin;
 		this.checkout = checkout;
-		return null;
 	}
 
 	public Integer getRoomNumber() {
