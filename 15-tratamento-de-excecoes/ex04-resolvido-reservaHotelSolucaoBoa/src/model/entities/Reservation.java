@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import model.exceptions.DomainException;
+
 public class Reservation {
 
 	private Integer roomNumber;
@@ -20,8 +22,18 @@ public class Reservation {
 
 	}
 
-	public Reservation(Integer roomNumber, Date checkin, Date checkout) {
+	public Reservation(Integer roomNumber, Date checkin, Date checkout) throws ParseException {
 		super();
+
+		Date now = sdf.parse("06/06/2018"); // Utilizamos a data atual como se fosse a data de quando foi gravado o
+		// video, pois se assim nao fizermos os exemplos nao funcionarao no
+		// exercicio
+
+		if (checkin.before(now) || checkout.before(now))
+			throw new DomainException("Reservation dates for update must be future dates");
+		if (!checkout.after(checkin))
+			throw new DomainException("Check-out date must be after check-in date");
+		
 		this.roomNumber = roomNumber;
 		this.checkin = checkin;
 		this.checkout = checkout;
@@ -33,15 +45,15 @@ public class Reservation {
 	}
 
 	public void updateDates(Date checkin, Date checkout) throws ParseException {
-
+		
 		Date now = sdf.parse("06/06/2018"); // Utilizamos a data atual como se fosse a data de quando foi gravado o
 		// video, pois se assim nao fizermos os exemplos nao funcionarao no
 		// exercicio
-
+		
 		if (checkin.before(now) || checkout.before(now))
-			throw new IllegalArgumentException("Reservation dates for update must be future dates");
+			throw new DomainException("Reservation dates for update must be future dates");
 		if (!checkout.after(checkin))
-			throw new IllegalArgumentException("Check-out date must be after check-in date");
+			throw new DomainException("Check-out date must be after check-in date");
 
 		this.checkin = checkin;
 		this.checkout = checkout;

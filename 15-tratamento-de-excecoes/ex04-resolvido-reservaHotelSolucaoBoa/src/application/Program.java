@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 import model.entities.Reservation;
+import model.exceptions.DomainException;
 
 public class Program {
 
@@ -24,10 +25,7 @@ public class Program {
 			System.out.print("Check-out date (dd/MM/yyyy): ");
 			Date checkout = sdf.parse(teclado.next());
 	
-			Reservation r1 = new Reservation();
-	
-			r1.setRoomNumber(roomNumber);
-			r1.updateDates(checkin, checkout);
+			Reservation r1 = new Reservation(roomNumber,checkin,checkout);
 			System.out.println(r1);
 	
 			System.out.println("\nEnter data to update the reservation:");
@@ -41,8 +39,10 @@ public class Program {
 			System.out.println(r1);
 		} catch (ParseException e) {
 			System.out.println("Invalid date format");
-		} catch (IllegalArgumentException e) {
+		} catch (DomainException e) {
 			System.out.println("Error in reservation: "+e.getMessage());
+		} catch (RuntimeException e) {
+			System.out.println("Unexpected error");
 		}
 		
 		teclado.close();
