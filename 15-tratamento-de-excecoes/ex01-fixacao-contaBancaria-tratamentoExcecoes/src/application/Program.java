@@ -3,7 +3,6 @@ package application;
 import java.util.Scanner;
 
 import model.entities.Account;
-import model.exceptions.DomainException;
 
 public class Program {
 
@@ -31,7 +30,7 @@ public class Program {
 			
 			Account c1=new Account(number, holder, initialBalance, withdrawLimit);
 			
-			c1.deposit(500.0);
+			c1.withdraw(withdrawAmount);
 			
 			System.out.println(c1);
 		}
