@@ -13,7 +13,9 @@ public class Program {
 		// TODO Auto-generated method stub
 
 		Scanner teclado = new Scanner(System.in);
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm"); // HH maiusculo para que sejam consideradas as
+																			// 24 horas, ou seja, horarios após as 12hs
+																			// como 13,14,15 etc
 
 		Date retirada = new Date();
 		Date retorno = new Date();
