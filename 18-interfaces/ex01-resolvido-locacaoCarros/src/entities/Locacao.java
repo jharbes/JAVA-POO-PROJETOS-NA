@@ -26,7 +26,7 @@ public class Locacao {
 		this.precoPorDia = precoPorDia;
 	}
 
-	public long duracao() {
+	private long duracao() {
 		return retorno.getTime() - retirada.getTime();
 	}
 
@@ -34,18 +34,20 @@ public class Locacao {
 		if (this.duracao() > 3600000 * 12) {
 			TimeUnit time = TimeUnit.DAYS;
 			long diasLocacao = time.convert(this.duracao(), TimeUnit.MILLISECONDS);
-			System.out.println("A diferenca em dias eh : " + diasLocacao + 1);
+			// System.out.println("A diferenca em dias eh : " + (diasLocacao + 1));
+			diasLocacao = this.duracao() % 3600000 * 24 > 0 ? diasLocacao + 1 : diasLocacao;
 			return this.precoPorDia * (diasLocacao > 0 ? diasLocacao : diasLocacao + 1);
 		} else {
 			TimeUnit time = TimeUnit.HOURS;
 			long horasLocacao = time.convert(this.duracao(), TimeUnit.MILLISECONDS);
-			System.out.println("A diferenca em horas eh: " + horasLocacao + 1);
+			horasLocacao = this.duracao() % 3600000 > 0 ? horasLocacao + 1 : horasLocacao;
+			// System.out.println("A diferenca em horas eh: " + (horasLocacao));
 			return this.precoPorHora * horasLocacao;
 		}
 	}
 
 	public float valorImposto() {
-		return (float) (this.valorLocacao() >= 100.0 ? this.valorLocacao() * 0.2 : this.valorLocacao() * 0.15);
+		return (float) (this.valorLocacao() >= 100.0 ? this.valorLocacao() * 0.15 : this.valorLocacao() * 0.2);
 	}
 
 	public float valorLocacaoComImposto() {

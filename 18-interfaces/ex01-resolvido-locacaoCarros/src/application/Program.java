@@ -31,7 +31,7 @@ public class Program {
 			e.printStackTrace();
 		}
 
-		System.out.print("Retorno (dd/MM/yyyy hh:mm: ");
+		System.out.print("Retorno (dd/MM/yyyy hh:mm): ");
 		try {
 			retorno = sdf.parse(teclado.nextLine());
 		} catch (ParseException e) {
@@ -48,9 +48,9 @@ public class Program {
 		Locacao locacao = new Locacao(nomeCarro, retirada, retorno, precoPorHora, precoPorDia);
 
 		System.out.println("\nFATURA");
-		System.out.println("Pagamento básico: " + locacao.valorLocacao());
-		System.out.println("Imposto: " + locacao.valorImposto());
-		System.out.println("Pagamento total: " + locacao.valorLocacaoComImposto());
+		System.out.println("Pagamento basico: " + String.format("%.2f", locacao.valorLocacao()));
+		System.out.println("Imposto: " + String.format("%.2f", locacao.valorImposto()));
+		System.out.println("Pagamento total: " + String.format("%.2f", locacao.valorLocacaoComImposto()));
 
 	}
 
