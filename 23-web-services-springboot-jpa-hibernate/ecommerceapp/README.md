@@ -1,3 +1,5 @@
+<img align="right" alt="Spring" width="100" src="https://github.com/devicons/devicon/blob/master/icons/spring/spring-original.svg">
+
 # ecommerceapp-spring-boot
 
 <h2>Aplicativo web de Ecommerce feito com Spring Boot, JPA e Hibernate</h2>
