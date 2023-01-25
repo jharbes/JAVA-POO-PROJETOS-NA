@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //utilizamos essa biblioteca jakarta.persistence.Entity pois ela eh a 
 // especificacao da jpa de entidade, e o org.hibernate eh a 
 // implementacao, o ideal eh fazer a classe depender da especificacao e nao da implementacao
@@ -35,6 +37,7 @@ public class User implements Serializable {
 	// informando que do outro lado esse atributo List<Order> está manipulado pelo
 	// atributo client
 	@OneToMany(mappedBy = "client")
+	@JsonIgnore // para evitar o loop infinito de pedidos chamando user e user chamando pedidos
 	private List<Order> orders = new ArrayList<>();
 
 	public User() { // utilizando o Spring boot é obrigatorio a criacao de um construtor vazio
