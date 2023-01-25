@@ -1,6 +1,8 @@
 package com.jharbes.ecommerceapp.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 //utilizamos essa biblioteca jakarta.persistence.Entity pois ela eh a 
@@ -10,15 +12,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 //utilizaremos essa notacao pois a palavra user (nome da classe) é reservado no
 // banco de dados h2, entao ao criar essa tabela poderia haver conflito
 @Entity
-@Table(name = "tb_user") 
+@Table(name = "tb_user")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	// informando ao JPA que a chave primaria será auto incremental
 	// no banco de dados
 	@Id // informo ao JPA que essa (id) é a chave primaria
@@ -28,6 +31,11 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private String password;
+
+	// informando que do outro lado esse atributo List<Order> está manipulado pelo
+	// atributo client
+	@OneToMany(mappedBy = "client")
+	private List<Order> orders = new ArrayList<>();
 
 	public User() { // utilizando o Spring boot é obrigatorio a criacao de um construtor vazio
 	}
@@ -79,6 +87,14 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
