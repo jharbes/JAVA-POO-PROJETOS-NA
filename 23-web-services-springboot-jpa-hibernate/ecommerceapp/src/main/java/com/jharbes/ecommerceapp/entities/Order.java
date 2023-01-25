@@ -2,7 +2,9 @@ package com.jharbes.ecommerceapp.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jharbes.ecommerceapp.entities.enums.OrderStatus;
@@ -13,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 //utilizamos a notacao @Table para renomear a tabela no banco de dados pois a palavra
@@ -35,6 +38,9 @@ public class Order implements Serializable {
 	@ManyToOne // relacionamento muitos para um com user conforme consta no modelo conceitual
 	@JoinColumn(name = "client_id") // indicando o nome da chave estrangeira a ser utilizada
 	private User client;
+
+	@OneToMany(mappedBy = "id.order")
+	private Set<OrderItem> items = new HashSet<>();
 
 	public Order() {
 	}
@@ -78,6 +84,10 @@ public class Order implements Serializable {
 	public void setOrderStatus(OrderStatus orderStatus) {
 		if (orderStatus != null)
 			this.orderStatus = orderStatus.getCode();
+	}
+
+	public Set<OrderItem> getItems() {
+		return items;
 	}
 
 	@Override

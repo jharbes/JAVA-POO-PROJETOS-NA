@@ -3,6 +3,7 @@ package com.jharbes.ecommerceapp.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jharbes.ecommerceapp.entities.pk.OrderItemPK;
 
 import jakarta.persistence.EmbeddedId;
@@ -15,7 +16,7 @@ public class OrderItem implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId // no caso de id composto
-	private OrderItemPK id;
+	private OrderItemPK id = new OrderItemPK();
 
 	private Integer quantity;
 	private Double price;
@@ -30,7 +31,8 @@ public class OrderItem implements Serializable {
 		this.quantity = quantity;
 		this.price = price;
 	}
-
+	
+	@JsonIgnore // para que nao de o retorno ciclico e os orderitems nao puxe os orders, apenas o inverso
 	public Order getOrder() {
 		return id.getOrder();
 	}
