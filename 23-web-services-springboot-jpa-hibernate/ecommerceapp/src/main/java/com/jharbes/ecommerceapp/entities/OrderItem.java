@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@EmbeddedId // no caso de id composto
 	private OrderItemPK id = new OrderItemPK();
 
@@ -31,8 +31,9 @@ public class OrderItem implements Serializable {
 		this.quantity = quantity;
 		this.price = price;
 	}
-	
-	@JsonIgnore // para que nao de o retorno ciclico e os orderitems nao puxe os orders, apenas o inverso
+
+	@JsonIgnore // para que nao de o retorno ciclico e os orderitems nao puxe os orders, apenas
+				// o inverso
 	public Order getOrder() {
 		return id.getOrder();
 	}
@@ -40,7 +41,7 @@ public class OrderItem implements Serializable {
 	public void setOrder(Order order) {
 		id.setOrder(order);
 	}
-	
+
 	public Product getProduct() {
 		return id.getProduct();
 	}
@@ -63,6 +64,10 @@ public class OrderItem implements Serializable {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public Double getSubTotal() { // devemos usar a notacao get na frente para que haja retorno json
+		return this.price * this.quantity;
 	}
 
 	@Override
