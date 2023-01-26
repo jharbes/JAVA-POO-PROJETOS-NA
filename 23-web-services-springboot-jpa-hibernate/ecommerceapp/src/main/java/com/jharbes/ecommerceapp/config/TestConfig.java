@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.jharbes.ecommerceapp.entities.Category;
 import com.jharbes.ecommerceapp.entities.Order;
 import com.jharbes.ecommerceapp.entities.OrderItem;
+import com.jharbes.ecommerceapp.entities.Payment;
 import com.jharbes.ecommerceapp.entities.Product;
 import com.jharbes.ecommerceapp.entities.User;
 import com.jharbes.ecommerceapp.entities.enums.OrderStatus;
@@ -82,6 +83,10 @@ public class TestConfig implements CommandLineRunner {
 
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 
+		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+		o1.setPayment(pay1); // no caso do relacionamento 1x1 nao utilizaremos o repository para salvar o
+								// pagamento e sim adicionaremos ele ao pedido e salvaremos novamente o pedido
+		orderRepository.save(o1);
 	}
 
 }
