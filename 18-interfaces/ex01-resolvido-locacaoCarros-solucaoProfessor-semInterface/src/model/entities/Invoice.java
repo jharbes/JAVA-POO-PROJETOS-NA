@@ -34,4 +34,9 @@ public class Invoice {
 		this.tax = tax;
 	}
 
+	@Override
+	public String toString() {
+		return "Invoice [basicPayment=" + basicPayment + ", tax=" + tax + "]";
+	}
+	
 }

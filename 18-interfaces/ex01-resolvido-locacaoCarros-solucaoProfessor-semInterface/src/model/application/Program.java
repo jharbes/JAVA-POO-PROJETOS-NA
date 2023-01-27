@@ -25,14 +25,19 @@ public class Program {
 		String carModel = teclado.nextLine();
 
 		System.out.print("Retirada (dd/MM/yyyy hh:mm): ");
-		LocalDateTime start = LocalDateTime.parse(teclado.nextLine(), fmt);
+		LocalDateTime start = LocalDateTime.parse(teclado.nextLine(), fmt); // coloca o segundo argumento como fmt para
+																			// que a leitura seja feita no formato
+																			// mencionado dd/MM/yyyy HH:mm e convertido
+																			// para o formato operacional do
+																			// LocalDateTime
 
 		System.out.print("Retorno (dd/MM/yyyy hh:mm): ");
 		LocalDateTime finish = LocalDateTime.parse(teclado.nextLine(), fmt);
 
-		CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
-		
-		
+		CarRental carRental = new CarRental(start, finish, new Vehicle(carModel));
+
+		System.out.println(carRental);
+
 		teclado.close();
 	}
 
