@@ -31,6 +31,9 @@ public class Program {
 		LocalDateTime finish = LocalDateTime.parse(teclado.nextLine(), fmt);
 
 		CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
+		
+		
+		teclado.close();
 	}
 
 }
