@@ -43,6 +43,9 @@ public class Program {
 		System.out.print("Entre com o preço por dia: ");
 		Double pricePerDay = teclado.nextDouble();
 
+		// embora estejamos instaciando um BrazilTaxService em RentalService nao teremos
+		// problema pois BrazilTaxService é um tipo de TaxService que é o atributo de
+		// RentalService, ou seja, estaremos fazendo um downcasting
 		RentalService rentalService = new RentalService(pricePerDay, pricePerHour, new BrazilTaxService());
 
 		rentalService.processInvoice(carRental);
