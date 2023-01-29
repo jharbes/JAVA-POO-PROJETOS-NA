@@ -19,8 +19,10 @@ public class ContractService {
 		Double porMes = contract.getTotalValue() / months;
 		for (int i = 1; i <= months; i++) {
 			Installment installment = new Installment(contract.getDate().plusMonths(i), null);
-			installment.setAmount(porMes + this.onlinePaymentService.paymentFee(porMes)
-					+ this.onlinePaymentService.interest(porMes, months));
+			installment.setAmount(porMes
+					+ this.onlinePaymentService.paymentFee(porMes + this.onlinePaymentService.interest(porMes, i))
+					+ this.onlinePaymentService.interest(porMes, i));
+			contract.getInstallments().add(installment);
 		}
 	}
 }
