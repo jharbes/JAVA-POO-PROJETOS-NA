@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import entities.Contract;
+import entities.Installment;
+import services.ContractService;
 
 public class Program {
 
@@ -28,6 +30,14 @@ public class Program {
 
 		System.out.print("Entre com o numero de parcelas: ");
 		int n = teclado.nextInt();
+
+		ContractService contractService = new ContractService(null);
+		contractService.processContract(obj, n);
+		
+		System.out.println("Parcelas:");
+		for (Installment installment : obj.getInstallments())
+			System.out.println(installment);
+		
 
 		teclado.close();
 	}
