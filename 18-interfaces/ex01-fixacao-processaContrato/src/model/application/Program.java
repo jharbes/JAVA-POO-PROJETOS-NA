@@ -38,7 +38,7 @@ public class Program {
 		System.out.println("Parcelas:");
 
 		for (Installment parcela : contrato.getInstallments())
-			System.out.println(parcela.getDate().format(fmt) + " - " + parcela.getAmount());
+			System.out.println(parcela.getDate().format(fmt) + " - " + String.format("%.2f", parcela.getAmount()));
 
 		teclado.close();
 	}
