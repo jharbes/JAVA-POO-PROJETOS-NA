@@ -25,4 +25,13 @@ public class ContractService {
 			contract.getInstallments().add(installment);
 		}
 	}
+
+	public OnlinePaymentService getOnlinePaymentService() {
+		return onlinePaymentService;
+	}
+
+	public void setOnlinePaymentService(OnlinePaymentService onlinePaymentService) {
+		this.onlinePaymentService = onlinePaymentService;
+	}
+	
 }
