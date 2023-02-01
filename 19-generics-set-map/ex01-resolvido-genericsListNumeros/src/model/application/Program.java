@@ -10,7 +10,7 @@ public class Program {
 		// TODO Auto-generated method stub
 
 		Scanner teclado = new Scanner(System.in);
-		PrintService ps = new PrintService();
+		PrintService<Integer> ps = new PrintService<>();
 
 		System.out.print("Quantos valores deseja inserir? ");
 		int n = teclado.nextInt();
@@ -23,6 +23,8 @@ public class Program {
 		ps.print();
 		
 		System.out.println("Primeiro: " + ps.first());
+		
+		teclado.close();
 	}
 
 }
