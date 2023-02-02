@@ -1,10 +1,8 @@
 package model.entities;
 
-public class Shape {
+public interface Shape {
 
-	public Double area() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Double area();
+	
 
 }
