@@ -14,6 +14,9 @@ Classes onde vao acontecer persistencia de transacoes com o banco de dados
 
 @Controller
 Classes que vao receber algum tipo de requisicao, onde estao mapeadas as URLs que faremos as solicitacoes (GET,POST,PUT,DELETE)
+A responsabilidade do controller é receber os dados e retornar ao usuario quando for necessario, olhar os dados que ele vai receber, fazer a validacao desses dados
+O proprio spring recebe os dados em json e transforma em objetos no java
+regras de interpretacao de dados e maneira de passa-los ficam no controller
 
 
 @RestController
