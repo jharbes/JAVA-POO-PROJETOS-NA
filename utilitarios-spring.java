@@ -13,7 +13,11 @@ Classes onde vao acontecer persistencia de transacoes com o banco de dados
 
 
 @Controller
-Classes que vao receber algum tipo de requisicao
+Classes que vao receber algum tipo de requisicao, onde estao mapeadas as URLs que faremos as solicitacoes (GET,POST,PUT,DELETE)
+
+
+@RestController
+substitui o conjunto de @Controller e @ResponseBody
 
 
 
