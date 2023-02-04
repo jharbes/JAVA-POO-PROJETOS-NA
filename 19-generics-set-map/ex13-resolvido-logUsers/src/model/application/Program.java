@@ -20,8 +20,9 @@ public class Program {
 		Set<UserAccess> setUserAccess = new HashSet<>();
 
 		System.out.print("Enter file full path: ");
+		// C:\Users\Jorge\Desktop\Udemy\JAVA-POO-PROJETOS-NA\19-generics-set-map\inputFile.txt
+		
 		String path = teclado.next();
-		Integer userSum = 0;
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String line = br.readLine();
@@ -29,18 +30,18 @@ public class Program {
 			while (line != null) {
 				String[] params = line.split(" ");
 				UserAccess userAccess = new UserAccess(params[0], Instant.parse(params[1]));
-				if (!setUserAccess.contains(userAccess))
-					userSum++;
 
 				setUserAccess.add(userAccess);
 				line = br.readLine();
-				System.out.println(userAccess);
+				
 			}
 		} catch (IOException e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
+		
+		System.out.println(setUserAccess);
 
-		System.out.println("Total users: " + userSum);
+		System.out.println("Total users: " + setUserAccess.size());
 
 		teclado.close();
 	}
