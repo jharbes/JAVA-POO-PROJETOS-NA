@@ -21,7 +21,7 @@ public class Program {
 
 		System.out.print("Enter file full path: ");
 		// C:\Users\Jorge\Desktop\Udemy\JAVA-POO-PROJETOS-NA\19-generics-set-map\inputFile.txt
-		
+
 		String path = teclado.next();
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
@@ -29,16 +29,20 @@ public class Program {
 
 			while (line != null) {
 				String[] params = line.split(" ");
+
+				// ele automaticamente recusara novas entradas iguais (o parametro sera o nome,
+				// pois hashcode e equals foi baseado apenas nele) ele recusara, ou seja o Set
+				// tera na lista apenas uma entrada por usuario
 				UserAccess userAccess = new UserAccess(params[0], Instant.parse(params[1]));
 
 				setUserAccess.add(userAccess);
 				line = br.readLine();
-				
+
 			}
 		} catch (IOException e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
-		
+
 		System.out.println(setUserAccess);
 
 		System.out.println("Total users: " + setUserAccess.size());
