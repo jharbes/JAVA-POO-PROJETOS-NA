@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Curso {
-
+	
 	private String name;
 	private Integer numStudents;
 
