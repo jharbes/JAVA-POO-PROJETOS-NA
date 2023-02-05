@@ -8,17 +8,15 @@ public class Curso {
 
 	private String name;
 	private Integer numStudents;
-	private Professor professor;
 
 	private Set<Aluno> alunos = new HashSet<>();
 
 	public Curso() {
 	}
 
-	public Curso(String name, Professor professor) {
+	public Curso(String name) {
 		super();
 		this.name = name;
-		this.professor = professor;
 	}
 
 	public String getName() {
@@ -35,14 +33,6 @@ public class Curso {
 
 	public void setNumStudents(Integer numStudents) {
 		this.numStudents = numStudents;
-	}
-
-	public Professor getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
 	}
 
 	public Set<Aluno> getAlunos() {
@@ -68,7 +58,7 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [name=" + name + ", numStudents=" + numStudents + ", professor=" + professor + "]";
+		return "Curso [name=" + name + ", numStudents=" + numStudents ;
 	}
 
 }

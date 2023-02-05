@@ -1,6 +1,8 @@
 package model.application;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 import model.application.entities.Curso;
 import model.application.entities.Professor;
@@ -9,16 +11,26 @@ public class Program {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		
 
 		Scanner teclado = new Scanner(System.in);
 
-		Professor professorAlex = new Professor(1, "Alex");
-
-		Curso cursoA = new Curso("A", professorAlex);
-		Curso cursoB = new Curso("B", professorAlex);
-		Curso cursoC = new Curso("C", professorAlex);
+		Set<Integer> setCursoA = new HashSet<>();
+		System.out.print("How many students for course A? ");
+		Integer numAlunos = teclado.nextInt();
+		for (int i = 1; i <= numAlunos; i++) {
+			Integer idAluno = teclado.nextInt();
+			setCursoA.add(idAluno);
+		}
 		
-		System.out.println(professorAlex);
+		Set<Integer> setCursoB = new HashSet<>();
+		System.out.print("How many students for course A? ");
+		numAlunos = teclado.nextInt();
+		for (int i = 1; i <= numAlunos; i++) {
+			Integer idAluno = teclado.nextInt();
+			setCursoB.add(idAluno);
+		}
 
 		teclado.close();
 	}
