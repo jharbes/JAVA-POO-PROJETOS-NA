@@ -1,6 +1,8 @@
 package com.jharbes.springid.services;
 
+import org.springframework.stereotype.Service;
 
+@Service
 public class PayService {
 	
 	private TaxService taxService;
