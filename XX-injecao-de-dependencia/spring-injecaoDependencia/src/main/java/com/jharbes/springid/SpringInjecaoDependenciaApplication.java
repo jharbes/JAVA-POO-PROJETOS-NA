@@ -14,7 +14,7 @@ public class SpringInjecaoDependenciaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Resultado = " + payService.finalPrice(300.0, "SP"));
 	}
 
 }
