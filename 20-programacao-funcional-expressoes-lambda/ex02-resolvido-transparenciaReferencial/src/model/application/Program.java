@@ -13,6 +13,9 @@ public class Program {
 		System.out.println(Arrays.toString(vect));
 	}
 
+	// o comportamente do que acontece na funcao nao depende so do que acontece
+	// dentro da funcao, na verdade depende de um valor externo (globalValue) por
+	// isso dizemos que essa funcao nao tem transparecia referencial
 	public static void changeOddValues(int[] numbers) {
 		for (int i = 0; i < numbers.length; i++) {
 			if (numbers[i] % 2 != 0) {
