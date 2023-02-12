@@ -47,6 +47,11 @@ public class Product {
 	public static void staticPriceUpdate(Product p) {
 		p.setPrice(p.getPrice() * 1.1);
 	}
+	
+	// nao recebe argumento pois opera com o proprio produto
+	public void nonStaticPriceUpdate() {
+		this.setPrice(this.getPrice() * 1.1);
+	}
 
 	@Override
 	public String toString() {
