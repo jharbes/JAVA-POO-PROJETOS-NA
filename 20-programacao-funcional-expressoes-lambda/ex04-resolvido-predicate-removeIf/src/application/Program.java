@@ -43,14 +43,27 @@ public class Program {
 
 		// list.removeIf(Product::nonStaticProductPredicate);
 
+		/*
+		 * Quarta versao: Expressao lambda declarada
+		 */
+
 		// implementacao bastante interessante pois gera baixo acomplamento, poderiamos
 		// ter colocado o valor 100.0 direto na expressao lambda, no entanto podemos tb
 		// colocar ela em outra variavel, no caso "min", fazendo com que ela possa ser
 		// recebida no decorrer do programa evitando modificacoes em codigo para
 		// alteracoes de valores
+		// double min = 100.0;
+		// Predicate<Product> pred = p -> p.getPrice() >= min;
+		// list.removeIf(pred);
+
+		/*
+		 * Quinta versao: Expressao lambda nao-declarada , também interessante com baixo
+		 * acoplamento o recebimento do valor da variavel abaixo poderia ser uma entrada
+		 * de console ou recebimento de API
+		 */
+
 		double min = 100.0;
-		Predicate<Product> pred = p -> p.getPrice() >= min;
-		list.removeIf(pred);
+		list.removeIf(p -> p.getPrice() >= min);
 
 		for (Product p : list) {
 			System.out.println(p);
