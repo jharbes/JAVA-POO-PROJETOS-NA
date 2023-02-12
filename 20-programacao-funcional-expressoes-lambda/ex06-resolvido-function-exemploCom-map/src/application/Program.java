@@ -27,7 +27,11 @@ public class Program {
 		// stream) e aplica uma funcao a cada um desses items de uma stream, nesse
 		// exemplo primeiro convertemos de lista para stream para que assim possamos
 		// utilizar a funcao map
-		List<String> namesUpperCase = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+		// 1a versao: implementacao da interface
+		// List<String> namesUpperCase = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+		
+		// 2a versao: reference method com metodo estatico
+		List<String> namesUpperCase = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
 
 		// duas maneiras de imprimir a lista com forEach
 		namesUpperCase.forEach(p -> System.out.println(p));
