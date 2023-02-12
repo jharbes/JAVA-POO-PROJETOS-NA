@@ -31,7 +31,10 @@ public class Program {
 		// List<String> namesUpperCase = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
 		
 		// 2a versao: reference method com metodo estatico
-		List<String> namesUpperCase = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+		// List<String> namesUpperCase = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+		
+		// 3a versao: reference method com metodo nao estatico
+		List<String> namesUpperCase = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
 
 		// duas maneiras de imprimir a lista com forEach
 		namesUpperCase.forEach(p -> System.out.println(p));

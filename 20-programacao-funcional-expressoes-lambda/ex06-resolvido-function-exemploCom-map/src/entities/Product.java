@@ -56,6 +56,10 @@ public class Product {
 	public static String staticUpperCaseName(Product p) {
 		return p.getName().toUpperCase();
 	}
+	
+	public String nonStaticUpperCaseName() {
+		return this.name.toUpperCase();
+	}
 
 	@Override
 	public String toString() {
