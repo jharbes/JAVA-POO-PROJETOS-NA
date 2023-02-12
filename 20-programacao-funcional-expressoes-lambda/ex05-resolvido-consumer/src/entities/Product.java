@@ -42,6 +42,12 @@ public class Product {
 		return this.getPrice() >= 100.0;
 	}
 
+	// recebe o produto "p" por ser um metodo estatico, ou seja, trata com o
+	// parametro recebido e nao o proprio paramentro
+	public static void staticPriceUpdate(Product p) {
+		p.setPrice(p.getPrice() * 1.1);
+	}
+
 	@Override
 	public String toString() {
 		return "Product [name=" + name + ", price=" + String.format("%.2f", price) + "]";

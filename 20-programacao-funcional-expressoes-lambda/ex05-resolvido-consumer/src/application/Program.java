@@ -19,7 +19,12 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		list.forEach(new PriceUpdate());
+		
+		// 1a versao: com implementacao da interface 
+		// list.forEach(new PriceUpdate());
+		
+		// 2ª versao: method com metodo estatico 
+		list.forEach(Product::staticPriceUpdate);
 		
 		// usando um reference method para o println
 		list.forEach(System.out::println);
