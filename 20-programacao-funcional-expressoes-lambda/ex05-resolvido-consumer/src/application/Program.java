@@ -2,10 +2,9 @@ package application;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
+import java.util.function.Consumer;
 
 import entities.Product;
-import util.PriceUpdate;
 
 public class Program {
 
@@ -26,7 +25,14 @@ public class Program {
 		// list.forEach(Product::staticPriceUpdate);
 
 		// 3ª versao: method com metodo nao estatico
-		list.forEach(Product::nonStaticPriceUpdate);
+		// list.forEach(Product::nonStaticPriceUpdate);
+
+		// 4ª versao: expressao lambda declarada
+
+		double factor = 1.1; // utilizamos a entrada com o valor de modo a diminuir o acoplamento permitindo
+								// que o valor chegue ao programa sem manutencao no codigo
+		Consumer<Product> cons = p -> p.setPrice(p.getPrice() * factor);
+		list.forEach(cons);
 
 		// usando um reference method para o println
 		list.forEach(System.out::println);
