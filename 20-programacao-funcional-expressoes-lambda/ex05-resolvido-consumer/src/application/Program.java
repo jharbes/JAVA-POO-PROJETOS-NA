@@ -28,11 +28,15 @@ public class Program {
 		// list.forEach(Product::nonStaticPriceUpdate);
 
 		// 4ª versao: expressao lambda declarada
-
-		double factor = 1.1; // utilizamos a entrada com o valor de modo a diminuir o acoplamento permitindo
+		// double factor = 1.1; // utilizamos a entrada com o valor de modo a diminuir o acoplamento permitindo
 								// que o valor chegue ao programa sem manutencao no codigo
-		Consumer<Product> cons = p -> p.setPrice(p.getPrice() * factor);
-		list.forEach(cons);
+		// Consumer<Product> cons = p -> p.setPrice(p.getPrice() * factor);
+		// list.forEach(cons);
+		
+		// 5ª versao: expressao lambda inline
+		double factor = 1.1; // conforme acima para reduzir acoplamento
+		list.forEach(p -> p.setPrice(p.getPrice() * factor));
+		
 
 		// usando um reference method para o println
 		list.forEach(System.out::println);
