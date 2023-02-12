@@ -2,9 +2,9 @@ package application;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import entities.Product;
-import util.ProductPredicate;
 
 public class Program {
 
@@ -35,9 +35,23 @@ public class Program {
 		 */
 
 		// list.removeIf(Product::staticProductPredicate);
-		
-		list.removeIf(Product::nonStaticProductPredicate);
-		
+
+		/*
+		 * Terceira versao: Reference method com metodo nao estatico, metodo na classe
+		 * Product tem seu resultado ligeiramente diferente
+		 */
+
+		// list.removeIf(Product::nonStaticProductPredicate);
+
+		// implementacao bastante interessante pois gera baixo acomplamento, poderiamos
+		// ter colocado o valor 100.0 direto na expressao lambda, no entanto podemos tb
+		// colocar ela em outra variavel, no caso "min", fazendo com que ela possa ser
+		// recebida no decorrer do programa evitando modificacoes em codigo para
+		// alteracoes de valores
+		double min = 100.0;
+		Predicate<Product> pred = p -> p.getPrice() >= min;
+		list.removeIf(pred);
+
 		for (Product p : list) {
 			System.out.println(p);
 		}
