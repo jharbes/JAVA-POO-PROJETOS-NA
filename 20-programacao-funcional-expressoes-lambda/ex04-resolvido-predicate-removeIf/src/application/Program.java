@@ -21,12 +21,22 @@ public class Program {
 		list.add(new Product("Mouse", 50.00));
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
+
+		/*
+		 * Primeira versao: implementacao da interface
+		 */
+
+		// list.removeIf(new ProductPredicate());
+
+		/*
+		 * Segunda versao: Reference method com método estático, o argumento abaixo
+		 * significa rodar o metodo em questao (staticProductPredicate) para cada um dos
+		 * produtos da lista
+		 */
+
+		// list.removeIf(Product::staticProductPredicate);
 		
-		/* Primeira versao: implementacao da interface
-		list.removeIf(new ProductPredicate());
-		*/
-		
-		list.removeIf(Product::staticProductPredicate);
+		list.removeIf(Product::nonStaticProductPredicate);
 		
 		for (Product p : list) {
 			System.out.println(p);

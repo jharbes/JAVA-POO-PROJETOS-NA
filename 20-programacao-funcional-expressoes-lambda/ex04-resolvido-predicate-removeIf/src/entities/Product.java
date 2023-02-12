@@ -29,8 +29,17 @@ public class Product {
 		this.price = price;
 	}
 
+	// metodo estatico trabalha com o produto que sera passado como argumento, logo
+	// deve receber um argumento "p" para que seja trabalhado
 	public static boolean staticProductPredicate(Product p) {
 		return p.getPrice() >= 100.0;
+	}
+
+	// por ser um metodo nao estatico vai trabalhar com o proprio produto onde se
+	// encontra, por isso nao precisa de argumento, pois sera o proprio produto em
+	// si
+	public boolean nonStaticProductPredicate() {
+		return this.getPrice() >= 100.0;
 	}
 
 	@Override
