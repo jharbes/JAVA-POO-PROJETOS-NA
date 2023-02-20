@@ -40,10 +40,15 @@ public class Program {
 
 		List<String> listaEmailFiltrados = listaFuncionarios.stream().filter(p -> p.getSalario() > salarioReferencia)
 				.map(p -> p.getEmail()).sorted().collect(Collectors.toList());
-		
+
 		System.out.println("Email of people whose salary is more than 2000.00:");
 		listaEmailFiltrados.forEach(System.out::println);
 
+		Double somatorioSalarios = listaFuncionarios.stream().filter(p -> p.getNome().charAt(0) == 'M')
+				.map(p -> p.getSalario()).reduce(0.0, (x, y) -> x + y);
+
+		System.out.println(
+				"Sum of salary of people whose name starts with 'M': " + String.format("%.2f", somatorioSalarios));
 	}
 
 }
