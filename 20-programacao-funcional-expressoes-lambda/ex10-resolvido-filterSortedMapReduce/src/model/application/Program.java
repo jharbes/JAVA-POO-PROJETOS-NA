@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import model.entities.Produto;
 
@@ -36,6 +38,13 @@ public class Program {
 
 		System.out.print("Average price: ");
 		System.out.println(String.format("%.2f", media));
+
+		Comparator<String> comp = (s1, s2) -> s1.toUpperCase().compareTo(s2.toUpperCase());
+
+		List<String> novaLista = listaProdutos.stream().filter(p -> p.getPreco() < media).map(p -> p.getNome())
+				.sorted(comp.reversed()).collect(Collectors.toList());
+
+		novaLista.forEach(System.out::println);
 	}
 
 }
