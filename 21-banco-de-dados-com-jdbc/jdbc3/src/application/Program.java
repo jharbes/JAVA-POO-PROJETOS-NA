@@ -1,9 +1,10 @@
 package application;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import database.DB;
 
@@ -11,26 +12,30 @@ public class Program {
 
 	public static void main(String[] args) {
 
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
 		Connection connection = null;
+		PreparedStatement preparedStatement = null;
 
-		Statement statement = null; // onde preparamos a consulta a ser feita no banco
-
-		ResultSet resultSet = null; // onde guardaremos o resultado da consulta statement feita
-		
 		try {
-			connection=DB.getConnection();
-			statement=connection.createStatement();
-			resultSet=statement.executeQuery("select * from department");
-			while (resultSet.next()) {
-				System.out.println(resultSet.getInt("Id") + ", " + resultSet.getString("Name"));
-			}
-		}
-		catch (SQLException e) {
+			connection = DB.getConnection();
+			preparedStatement = connection.prepareStatement(
+					"INSERT INTO seller (Name, Email, BirthDate, BaseSalary, DepartmentId) VALUES (?, ?, ?, ?, ?)");
+			preparedStatement.setString(1, "Carl Purple");
+			preparedStatement.setString(2, "carl@gmail.com");
+			preparedStatement.setDate(3, new java.sql.Date(sdf.parse("22/04/1985").getTime()));
+			preparedStatement.setDouble(4, 3000.0);
+			preparedStatement.setInt(5, 4);
+
+			int rowsAffected = preparedStatement.executeUpdate();
+
+			System.out.println("Done! Rows Affected: " + rowsAffected);
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally {
-			DB.closeResultSet(resultSet);
-			DB.closeStatement(statement);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} finally {
+			DB.closeStatement(preparedStatement);
 			DB.closeConnection();
 		}
 	}
