@@ -21,6 +21,7 @@ public class Program {
 
 		try {
 			connection = DB.getConnection();
+
 			preparedStatement = connection.prepareStatement(
 					"INSERT INTO seller (Name, Email, BirthDate, BaseSalary, DepartmentId) VALUES (?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
